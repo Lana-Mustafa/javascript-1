@@ -15,6 +15,43 @@
     </style>
     <script>
         /* TODO complete this part */
+       
+          window.onload = function(){ 
+                document.getElementById("submitBtn").style.display="none"; //  submit is hidden by default
+            }
+    
+            function passChecker (){
+            var pass1 =document.getElementById("password1").value;
+            var pass2 =document.getElementById("password2").value;
+            var checkPass1=document.getElementById("pw1_check");
+            var checkPass2=document.getElementById("pw2_check");
+            var error=false;
+
+            if (pass1.length >0){
+                if (pass1.length < 6  ){
+                    checkPass1.innerHTML="too short";
+                    error = true;
+               }
+               else {
+                    checkPass1.innerHTML="";  
+            }
+            if (pass2.length >0 && pass1 !== pass2){
+                checkPass2.innerHTML="the two passwords don't match";
+                 error = true;
+                }
+            else{
+                checkPass2.innerHTML="";   
+
+            }
+           
+          }
+            if (pass1.length > 0 && pass2.length > 0 && !error) {
+                document.getElementById("submitBtn").style.display = "block";
+            }
+            else {
+                document.getElementById("submitBtn").style.display = "none";
+            }}
+            
     </script>
 </head>
 <body>
@@ -23,14 +60,14 @@
     <table>
         <tr>
             <td>Password (min 6 characters):</td>
-            <td><input type="password" name="password1" id="password1" size="10" placeholder="Password"></td>
+            <td><input type="password" name="password1" id="password1" size="10" placeholder="Password" onkeyup="passChecker();"></td>
             <td>
                 <div id="pw1_check" class="err"></div>
             </td>
         </tr>
         <tr>
             <td>Repeat password:</td>
-            <td><input type="password" name="password2" id="password2" size="10" placeholder="Password"></td>
+            <td><input type="password" name="password2" id="password2" size="10" placeholder="Password" onkeyup="passChecker();"></td>
             <td>
                 <div id="pw2_check" class="err"></div>
             </td>
@@ -42,4 +79,3 @@
 
 </body>
 </html>
-

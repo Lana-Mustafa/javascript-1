@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form >
+        
+         <select name="flag" id="flag" onchange="changeImage()";>
+          <option value="no-image.png">Select</option>
+          <option value="Canada.png">Canda</option>
+          <option value="Jordan.png">Jordan</option>
+          <option value="Turkey.png">Turkey</option>
+          </select>
+       
+    </form>
+    <img id="img" src="images/no-image.png" style="border: 1px solid black" alt="No image selected"/>
+    
+    <script>
+        function changeImage() {
+            var selectedFlag = document.getElementById("flag");
+            
+            var img = document.getElementById("img");
+            img.src = "images/" + selectedFlag.value;
+            img.alt = selectedFlag[selectedFlag.selectedIndex].text;
+            
+            
+        }
+    </script>
+
+
+</body>
+</html>

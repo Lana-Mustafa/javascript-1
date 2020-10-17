@@ -17,6 +17,18 @@
     </style>
 </head>
 <body>
-<div id="mydiv">Hello world</div>
+<div id="mydiv" onmouseover=textAfter() onmouseout=textBefore() >Hello world </div>
+<script>
+ 
+
+function textAfter(){
+    document.getElementById("mydiv").innerHTML ="Can I help you?";
+};
+function textBefore(){
+    document.getElementById("mydiv").innerHTML ="Hello world";
+};
+
+</script>
+
 </body>
 </html>
